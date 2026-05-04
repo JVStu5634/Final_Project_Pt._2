@@ -1,1 +1,11 @@
-
+Jenny      88
+James      76
+Robert     74
+Raymond    84
+Dwight     82
+Debra      77
+Peggy      81
+Carrie     90
+Lisa       96
+Bart       67
+Louise     92

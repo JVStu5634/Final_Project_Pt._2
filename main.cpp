@@ -124,7 +124,26 @@ void addEntry(Student students[], int& count) {
 
 void searchEntry(Student students[], int count) {
   string query;
-  cout << "Enter name to 
+  cout << "Enter name to search: ";
+  cin >> query;
+
+  for (int i = 0; i < count; i++) {
+      if (students[i].name == query) {
+          cout << "Found" << students[i].name << " - Score: " << students[i].score << endl;
+
+          return;
+        }
+    }
+    cout << "Record not found.\n";
+}
+
+void saveData(Student students[], int count) {
+  ofstream outFile("Output.txt");
+  for (int i = 0; i < count; i++) {
+      outFile << students[i].name << " " << students[i].score << endl;
+  }
+  outFile.close();
+  cout << "Data
 
 
 

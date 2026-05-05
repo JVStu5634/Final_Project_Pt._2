@@ -13,7 +13,7 @@ using namespace std;
 
 const int MAX_SIZE = 100;
 
-struct Student {      // Changed Class to Student 
+struct Student {      // Changed struct from Class to Student 
 string name;       
 int score;
 };
@@ -32,7 +32,7 @@ int main() {
   int count = 0;
   int choice;
 
-// initial load from data file
+// Loads Output.txt into program
 
 ifstream inFile("Output.txt");
 if (inFile) {
@@ -45,7 +45,7 @@ if (inFile) {
 } else {
     cout << "No existing file found. Please try again.\n";
 }
-
+          // Revised menu loop
 do {
     cout << "\n--- Daily Quiz Menu ---\n";
     cout << "1. View Data\n";
@@ -85,7 +85,7 @@ do {
   return 0;
 }
 
-void displayData(Student students[], int count) {
+void displayData(Student students[], int count) {    // Function to display the current student names and daily quiz scores
   if (count == 0) {
       cout << "List is empty.\n";
       return;
@@ -97,7 +97,7 @@ void displayData(Student students[], int count) {
     }
 }
 
-void findMinMax(Student students[], int count) {
+void findMinMax(Student students[], int count) {      // Function to find the students with the highest and lowest daily quiz scores
   int maxIdx = 0, minIdx = 0;
   for (int i = 0; i < count; i++) {
       if (students[i].score > students[maxIdx].score)
@@ -109,7 +109,7 @@ void findMinMax(Student students[], int count) {
     cout << "\nTodays Lowest Quiz Score: " << students[minIdx].name << " (" << students[minIdx].score << ")";
 }
 
-void addEntry(Student students[], int& count) {
+void addEntry(Student students[], int& count) {      // Function allows user to add an entry
   if (count < MAX_SIZE) {
       cout << "Enter name: ";
       cin >> students[count].name;
@@ -122,7 +122,7 @@ void addEntry(Student students[], int& count) {
   }
 }
 
-void searchEntry(Student students[], int count) {
+void searchEntry(Student students[], int count) {    // Function to allow the user to search for an entry
   string query;
   cout << "Enter name to search: ";
   cin >> query;
@@ -137,7 +137,7 @@ void searchEntry(Student students[], int count) {
     cout << "Record not found.\n";
 }
 
-void saveData(Student students[], int count) {
+void saveData(Student students[], int count) {     // Function that allows the user to save the added data to the Output.txt data file
   ofstream outFile("Output.txt");
   for (int i = 0; i < count; i++) {
       outFile << students[i].name << " " << students[i].score << endl;
@@ -146,7 +146,7 @@ void saveData(Student students[], int count) {
   cout << "Data saved successfully to Output.txt";
 }
 
-void deleteEntry(Student students[], int& count) {
+void deleteEntry(Student students[], int& count) {      // Function that allows the user to delete any entry from the Output.txt data file
   string query;
   cout << "Enter name to delete: ";
   cin >> query;
@@ -162,7 +162,3 @@ void deleteEntry(Student students[], int& count) {
   }
   cout << "Name not found.\n";
 }
-
-
-
-

@@ -129,7 +129,7 @@ void searchEntry(Student students[], int count) {
 
   for (int i = 0; i < count; i++) {
       if (students[i].name == query) {
-          cout << "Found" << students[i].name << " - Score: " << students[i].score << endl;
+          cout << "Found " << students[i].name << " - Score: " << students[i].score << endl;
 
           return;
         }

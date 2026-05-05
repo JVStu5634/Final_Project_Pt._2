@@ -143,7 +143,25 @@ void saveData(Student students[], int count) {
       outFile << students[i].name << " " << students[i].score << endl;
   }
   outFile.close();
-  cout << "Data
+  cout << "Data saved successfully to Output.txt";
+}
+
+void deleteEntry(Student students[], int& count) {
+  string query;
+  cout << "Enter name to delete: ";
+  cin >> query;
+  for (int i = 0; i < count; i++) {
+      if (students[i].name == query) {
+        for (int j = i; j < count - 1; j++) {
+            students[j] = students[j + 1];
+        }
+        count--;
+        cout << "Name successfully deleted.\n";
+        return;
+      }
+  }
+  cout << "Name not found.\n";
+}
 
 
 
